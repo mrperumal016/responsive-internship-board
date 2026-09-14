@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Responsive internship board with search and domain filters">
+
+    <title>Internship Board</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-content">
+
+            <div>
+                <p class="eyebrow">CAREER OPPORTUNITIES</p>
+                <h1>Internship Board</h1>
+                <p class="subtitle">
+                    Find internships that match your skills, interests and career goals.
+                </p>
+            </div>
+
+            <div class="header-badge">
+                <span>🎓</span>
+                Student Friendly
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <!-- Search and Filters -->
+        <section class="search-section" aria-labelledby="search-title">
+
+            <div class="section-heading">
+                <div>
+                    <h2 id="search-title">Find your internship</h2>
+                    <p>Search by role, company or location.</p>
+                </div>
+            </div>
+
+            <div class="controls">
+
+                <!-- Search -->
+                <div class="search-box">
+                    <label for="searchInput">Search internships</label>
+
+                    <div class="input-wrapper">
+                        <span aria-hidden="true">🔍</span>
+
+                        <input
+                            type="search"
+                            id="searchInput"
+                            placeholder="Search internships..."
+                            autocomplete="off"
+                        >
+                    </div>
+                </div>
+
+
+                <!-- Domain Filter -->
+                <div class="filter-box">
+                    <label for="domainFilter">Domain</label>
+
+                    <select id="domainFilter">
+                        <option value="all">All Domains</option>
+                        <option value="Web Development">Web Development</option>
+                        <option value="AI & ML">AI & ML</option>
+                        <option value="Data Science">Data Science</option>
+                        <option value="UI/UX Design">UI/UX Design</option>
+                        <option value="Cyber Security">Cyber Security</option>
+                        <option value="Cloud Computing">Cloud Computing</option>
+                    </select>
+                </div>
+
+
+                <!-- Location Filter -->
+                <div class="filter-box">
+                    <label for="locationFilter">Work Mode</label>
+
+                    <select id="locationFilter">
+                        <option value="all">All Modes</option>
+                        <option value="Remote">Remote</option>
+                        <option value="Hybrid">Hybrid</option>
+                        <option value="On-site">On-site</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <!-- Result status -->
+            <div class="result-bar">
+                <p id="resultCount" aria-live="polite">
+                    Showing internships
+                </p>
+
+                <button
+                    type="button"
+                    id="clearFilters"
+                    class="clear-btn"
+                >
+                    Clear filters
+                </button>
+            </div>
+
+        </section>
+
+
+        <!-- Internship Listings -->
+        <section
+            class="internship-section"
+            aria-labelledby="internship-title"
+        >
+
+            <div class="section-title-row">
+                <h2 id="internship-title">Available Internships</h2>
+            </div>
+
+            <!-- Loading -->
+            <div id="loadingState" class="state-box">
+                <div class="spinner"></div>
+                <p>Loading internships...</p>
+            </div>
+
+
+            <!-- Error -->
+            <div
+                id="errorState"
+                class="state-box error-state"
+                hidden
+            >
+                <div class="state-icon">⚠️</div>
+                <h3>Something went wrong</h3>
+                <p>
+                    We couldn't load the internships.
+                    Please try again.
+                </p>
+
+                <button
+                    type="button"
+                    id="retryButton"
+                    class="primary-btn"
+                >
+                    Try Again
+                </button>
+            </div>
+
+
+            <!-- Empty -->
+            <div
+                id="emptyState"
+                class="state-box"
+                hidden
+            >
+                <div class="state-icon">🔎</div>
+
+                <h3>No internships found</h3>
+
+                <p>
+                    Try changing your search or filters.
+                </p>
+
+                <button
+                    type="button"
+                    id="emptyClearButton"
+                    class="primary-btn"
+                >
+                    Reset Search
+                </button>
+            </div>
+
+
+            <!-- Cards -->
+            <div
+                id="internshipGrid"
+                class="internship-grid"
+            ></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>
+                © 2026 Internship Board · Built with HTML, CSS & JavaScript
+            </p>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
